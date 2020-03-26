@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mapper.AuthorityMapper">
+    <select id="selectListPage" resultType="com.test.entity.dto.AuthorityBeanDTO" >
+        SELECT
+        b.name groupName,
+        c.authority_id 'authorityTest.authority_id',
+        c.name 'authorityTest.name',
+        c.value 'authorityTest.value',
+        c.`status` 'authorityTest.status' ,
+        c.create_user_id 'authorityTest.create_user_id' ,
+        c.modified_user_id 'authorityTest.modified_user_id',
+        c.channel_id 'authorityTest.channel_id'
+
+        FROM `authority_rela_group` a
+         LEFT JOIN authority_group b on b.authority_group_id = a.authority_group_id
+         LEFT JOIN authority c on c.authority_id = a.authority_id
+         where a.authority_id = #{param.authorityId}
+    </select>
+</mapper>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <groupId>com.test</groupId>
+    <artifactId>banana-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>banana-spring-boot-starter</artifactId>
+        <groupId>com.banana</groupId>
+        <version>1.0.6.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
+        <spring-cloud-starter-alibaba.version>0.9.0.RELEASE</spring-cloud-starter-alibaba.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.banana</groupId>
+                <artifactId>banana-spring-boot-starter</artifactId>
+                <version>${banana-spring-boot-starter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>banana-demo-impl</module>
+        <module>banana-demo-api</module>
+        <module>banana-demo-entity</module>
+        <module>banana-demo-common</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${spring-cloud-starter-alibaba.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${spring-cloud-starter-alibaba.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-swagger-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-log-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-common-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-redis-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-APIException-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-cors-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-job-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-i18n-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-http-secret-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-lcn-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-feign-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-oss-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-mail-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-auth2-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-mybatis-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
+    </dependencies>
+</project>

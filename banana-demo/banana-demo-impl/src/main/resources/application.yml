@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: banana-demo
+
+#日志输出跟路径;windows默认在C盘
+log:
+  path: /data/log
