@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 //import com.kitedge.middle.user.api.IAuthorityGroupAPI;
 //import com.kitedge.middle.user.entity.bo.authority.AuthorityGroupParam;
 import com.test.config.MyStatusCode;
+import com.test.config.Properties;
 import com.test.entity.bo.AuthorityPageParamTest;
 import com.test.entity.bo.AuthorityParamTest;
 import com.test.entity.bo.PageParam;
@@ -217,5 +218,10 @@ public class TestImpl implements ITest {
     @Override
     public String test() {
         return "";
+    }
+
+    @Override
+    public String refreshScopeStr(Properties properties) {
+        return properties.getUserName();
     }
 }

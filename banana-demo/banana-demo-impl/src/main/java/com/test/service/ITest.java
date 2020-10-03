@@ -1,6 +1,7 @@
 package com.test.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.test.config.Properties;
 import com.test.entity.bo.AuthorityPageParamTest;
 import com.test.entity.bo.AuthorityParamTest;
 import com.test.entity.bo.PageParam;
@@ -15,4 +16,5 @@ public interface ITest {
     IPage<AuthorityBeanDTO> findAuthorityBeanListPage(PageParam param);
 //    void codePhone(String phone);
     void mq();
+    String refreshScopeStr(Properties properties);
 }
