@@ -107,11 +107,11 @@
             <version>${banana-spring-boot-starter.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.banana</groupId>-->
-            <!--<artifactId>banana-lcn-spring-boot-starter</artifactId>-->
-            <!--<version>${banana-spring-boot-starter.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.banana</groupId>
+            <artifactId>banana-lcn-spring-boot-starter</artifactId>
+            <version>${banana-spring-boot-starter.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.banana</groupId>
