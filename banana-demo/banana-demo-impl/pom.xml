@@ -14,6 +14,7 @@
         <app.docker.skip>true</app.docker.skip>
         <maven.deploy.skip>true</maven.deploy.skip>
         <app.docker.url></app.docker.url>
+        <docker.image.prefix></docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -75,7 +76,7 @@
 
                 <configuration>
                     <skipDocker>${app.docker.skip}</skipDocker>
-                    <imageName>banana/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                     </imageTags>
