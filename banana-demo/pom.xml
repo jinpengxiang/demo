@@ -19,6 +19,7 @@
     <properties>
         <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
         <spring-cloud-starter-alibaba.version>0.9.0.RELEASE</spring-cloud-starter-alibaba.version>
+        <com.alibaba.cloud.version>2.1.2.RELEASE</com.alibaba.cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -42,9 +43,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
+            <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>${spring-cloud-starter-alibaba.version}</version>
+            <version>${com.alibaba.cloud.version}</version>
         </dependency>
 
         <dependency>
