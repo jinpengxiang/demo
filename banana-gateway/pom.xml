@@ -20,6 +20,7 @@
         <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
         <app.docker.skip>true</app.docker.skip>
         <app.docker.url></app.docker.url>
+        <docker.image.prefix></docker.image.prefix>
     </properties>
 
     <dependencyManagement>
@@ -164,7 +165,7 @@
 
                 <configuration>
                     <skipDocker>${app.docker.skip}</skipDocker>
-                    <imageName>banana/${project.artifactId}</imageName>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
                     </imageTags>
@@ -177,6 +178,8 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+                    <serverId>docker-hub</serverId>
+                    <registryUrl>https://index.docker.io/v1/</registryUrl>
                 </configuration>
             </plugin>
 
