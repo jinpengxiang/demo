@@ -1,6 +1,18 @@
 spring:
   application:
     name: banana-demo
+  kafka:
+    bootstrap-servers: 47.101.172.183:9092,47.101.172.183:9093
+    consumer:
+      group-id: KingSpringConsumer3
+    #      max-poll-records: 20
+    #      enable-auto-commit: true
+  #    producer:
+  #      properties:
+  #        partitioner.class: com.test.listener.kafka.CustomizePartitioner
+  #      transaction-id-prefix: transaction
+  #    listener:
+  #      type: batch
 
 #日志输出跟路径;windows默认在C盘
 log:
