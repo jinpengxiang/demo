@@ -7,4 +7,6 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 ENV PARAMS=""
 ENV PACKAGE=""
 #ENTRYPOINT [ "java $PARAMS", "-jar", "/jar/app.jar" ]
+#PARAMS=-Dspring.profiles.active=jpx
+#PACKAGE=-Dlog4j.skipJansi=false
 ENTRYPOINT ["sh","-c","java $PARAMS $PACKAGE -jar /jar/app.jar"]
