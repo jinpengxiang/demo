@@ -20,7 +20,7 @@ spring:
       config:
         server-addr: cloud-nacos-test.hanyuan.vip:80
         file-extension: yml
-        group: demo
+        group: test
         namespace: 24dfaf91-0c36-45ba-8643-879775d49420
       discovery:
         server-addr: cloud-nacos-test.hanyuan.vip:80
