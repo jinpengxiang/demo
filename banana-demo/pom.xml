@@ -41,6 +41,17 @@
         <module>banana-demo-common</module>
     </modules>
 
+    <repositories>
+        <repository>
+            <id>mvn-repo</id>
+            <url>https://raw.github.com/jinpengxiang/mvn-repo/master</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
