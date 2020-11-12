@@ -81,7 +81,7 @@
                         <imageTag>${project.version}</imageTag>
                     </imageTags>
                     <dockerDirectory>${project.basedir}</dockerDirectory>
-                    <dockerHost>${app.docker.url}</dockerHost>
+                    <!--<dockerHost>${app.docker.url}</dockerHost>-->
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
