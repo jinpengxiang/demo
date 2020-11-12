@@ -44,7 +44,7 @@
     <repositories>
         <repository>
             <id>mvn-repo</id>
-            <url>https://raw.github.com/jinpengxiang/mvn-repo/master</url>
+            <url>https://raw.github.com/jinpengxiang/mvn-repo/banana-spring-boot-1.0.6.RELEASE</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
