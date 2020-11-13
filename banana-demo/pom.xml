@@ -63,6 +63,14 @@
                 <updatePolicy>always</updatePolicy>
             </snapshots>
         </repository>
+        <repository>
+            <id>github</id>
+            <url>https://raw.github.com/jinpengxiang/mvn-repo/lcn-5.0.5.RELEASE</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
     </repositories>
 
     <dependencies>
