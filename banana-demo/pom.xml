@@ -9,15 +9,15 @@
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>banana-spring-boot-starter</artifactId>
-        <groupId>com.banana</groupId>
-        <version>1.0.6.RELEASE</version>
-        <relativePath/>
-    </parent>
+    <!--<parent>-->
+        <!--<artifactId>banana-spring-boot-starter</artifactId>-->
+        <!--<groupId>com.banana</groupId>-->
+        <!--<version>1.0.6.RELEASE</version>-->
+        <!--<relativePath/>-->
+    <!--</parent>-->
 
     <properties>
-        <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
+        <banana-spring-boot-starter.version>1.0-SNAPSHOT</banana-spring-boot-starter.version>
         <spring-cloud-starter-alibaba.version>0.9.0.RELEASE</spring-cloud-starter-alibaba.version>
         <com.alibaba.cloud.version>2.1.2.RELEASE</com.alibaba.cloud.version>
     </properties>
@@ -41,14 +41,23 @@
         <module>banana-demo-common</module>
     </modules>
 
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>mvn-repo</id>-->
+            <!--<url>https://raw.github.com/jinpengxiang/mvn-repo/banana-spring-boot-1.0.6.RELEASE</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+                <!--<updatePolicy>always</updatePolicy>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+
+
     <repositories>
         <repository>
-            <id>mvn-repo</id>
-            <url>https://raw.github.com/jinpengxiang/mvn-repo/banana-spring-boot-1.0.6.RELEASE</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
+            <id>king-mvn-repo</id>
+            <url>https://raw.githubusercontent.com/jinpengxiang/banana-spring-boot-starter/master/repo</url>
         </repository>
     </repositories>
 
