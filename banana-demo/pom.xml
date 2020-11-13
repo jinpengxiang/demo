@@ -57,12 +57,11 @@
     <repositories>
         <repository>
             <id>github</id>
-            <url>https://raw.github.com/jinpengxiang/mvn-repo/master</url>
+            <url>https://raw.github.com/jinpengxiang/mvn-repo/starter-${banana-spring-boot-starter.version}</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
-
         </repository>
     </repositories>
 
