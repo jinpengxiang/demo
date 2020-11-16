@@ -19,7 +19,7 @@ public class I18nController {
     @GetMapping("/i18n/{id}/{str}")
     public BaseResponseBody<String> i18ncu(@PathVariable float id, @PathVariable String str) {
         //TODO 传递header;Accept-Language=en/zh
-        log.info("i18n=================================");
+        log.info("i18n===============CICD");
         return BaseResponseBody.from(MyStatusCode.test);
     }
 }
