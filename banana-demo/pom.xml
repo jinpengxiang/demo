@@ -20,7 +20,7 @@
         <banana-spring-boot-starter.version>1.0.0.RELEASE</banana-spring-boot-starter.version>
         <spring-cloud-starter-alibaba.version>0.9.0.RELEASE</spring-cloud-starter-alibaba.version>
         <com.alibaba.cloud.version>2.1.2.RELEASE</com.alibaba.cloud.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
     </properties>
 
     <dependencyManagement>
