@@ -5,8 +5,8 @@ EXPOSE 18400
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo 'Asia/Shanghai' >/etc/timezone
 
-## 设置系统字符
-#ENV  LANG="en_US.UTF-8"
+RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
+ENV LC_ALL zh_CN.UTF-8
 
 ENV PARAMS=""
 ENV PACKAGE=""
