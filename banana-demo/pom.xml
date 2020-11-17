@@ -42,19 +42,6 @@
         <module>banana-demo-common</module>
     </modules>
 
-    <!--<repositories>-->
-        <!--<repository>-->
-            <!--<id>mvn-repo</id>-->
-            <!--<url>https://raw.github.com/jinpengxiang/maven-repository/master</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>true</enabled>-->
-                <!--<updatePolicy>always</updatePolicy>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
-    <!--</repositories>-->
-
-
-
     <repositories>
         <repository>
             <id>github</id>
