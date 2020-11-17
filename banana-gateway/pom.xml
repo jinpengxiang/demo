@@ -8,19 +8,13 @@
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>banana-spring-boot-starter</artifactId>
-        <groupId>com.banana</groupId>
-        <version>1.0.6.RELEASE</version>
-        <relativePath/>
-    </parent>
-
     <properties>
         <spring-cloud-starter-alibaba.version>0.9.0.RELEASE</spring-cloud-starter-alibaba.version>
         <banana-spring-boot-starter.version>1.0.6.RELEASE</banana-spring-boot-starter.version>
         <com.alibaba.cloud.version>2.1.2.RELEASE</com.alibaba.cloud.version>
         <app.docker.skip>true</app.docker.skip>
         <app.docker.url></app.docker.url>
+        <app.docker.server.url></app.docker.server.url>
         <docker.image.prefix></docker.image.prefix>
     </properties>
 
@@ -35,6 +29,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://raw.github.com/jinpengxiang/mvn-repo/master</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -139,13 +144,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.1.RELEASE</version>
                 <executions>
                     <execution>
                         <goals>
+                            <goal>repackage</goal>
                             <goal>build-info</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <fork>true</fork>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
 
             <!--本地dockerfile构建镜像-->
@@ -179,8 +190,9 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                    <serverId>docker-hub</serverId>
-                    <registryUrl>https://index.docker.io/v1/</registryUrl>
+
+                    <serverId>docker-harbor</serverId>
+                    <registryUrl>${app.docker.server.url}</registryUrl>
                 </configuration>
             </plugin>
 
