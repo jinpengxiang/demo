@@ -5,9 +5,6 @@ EXPOSE 18400
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo 'Asia/Shanghai' >/etc/timezone
 
-## 设置系统字符
-ENV  LANG="zh_CN.UTF-8"
-
 ENV PARAMS=""
 ENV PACKAGE=""
 #ENTRYPOINT [ "java $PARAMS", "-jar", "/jar/app.jar" ]
