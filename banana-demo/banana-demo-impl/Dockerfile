@@ -6,7 +6,7 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo 'Asia/Shanghai' >/etc/timezone
 
 # 设置系统字符
-ENV LANG C.UTF-8 
+ENV  LANG="en_US.UTF-8"
 
 ENV PARAMS=""
 ENV PACKAGE=""
