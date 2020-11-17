@@ -103,7 +103,7 @@
                         </resource>
                     </resources>
 
-                    <serverId>docker-hub</serverId>
+                    <serverId>docker-harbor</serverId>
                     <!--<registryUrl>https://index.docker.io/v1/</registryUrl>-->
                     <registryUrl>192.168.0.8</registryUrl>
 
