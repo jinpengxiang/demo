@@ -12,13 +12,13 @@
 #        namespace: 4d7bee03-f46b-4f59-8d5a-cf0c367d9abf
 
 spring:
-  profiles: dev
+  profiles: jpx
   cloud:
     nacos:
       config:
         server-addr: cloud-nacos-test.hanyuan.vip:80
         file-extension: yml
-        group: dev
+        group: jpx
         namespace: 610d62b0-b2a9-4312-97c4-5462ee894017
       discovery:
         server-addr: cloud-nacos-test.hanyuan.vip:80
