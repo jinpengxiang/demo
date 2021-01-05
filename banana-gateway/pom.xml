@@ -79,6 +79,7 @@
         <dependency>
             <groupId>cn.springcloud.gray</groupId>
             <artifactId>spring-cloud-starter-gray-client</artifactId>
+            <version>B.0.0.6</version>
             <exclusions>
                 <exclusion>
                     <artifactId>spring-cloud-gray-plugin-webmvc</artifactId>
