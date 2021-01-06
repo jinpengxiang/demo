@@ -59,6 +59,23 @@
         </dependency>
 
         <dependency>
+            <groupId>cn.springcloud.gray</groupId>
+            <artifactId>spring-cloud-gray-plugin-feign</artifactId>
+            <version>B.0.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.springcloud.gray</groupId>
+            <artifactId>spring-cloud-gray-plugin-event-stream</artifactId>
+            <version>B.0.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.springcloud.gray</groupId>
+            <artifactId>spring-cloud-gray-plugin-ribbon-nacos-discovery</artifactId>
+            <version>B.0.0.6</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${com.alibaba.cloud.version}</version>

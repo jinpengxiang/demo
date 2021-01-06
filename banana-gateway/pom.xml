@@ -93,6 +93,17 @@
         </dependency>
 
         <dependency>
+            <groupId>cn.springcloud.gray</groupId>
+            <artifactId>spring-cloud-gray-plugin-ribbon-nacos-discovery</artifactId>
+            <version>B.0.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.springcloud.gray</groupId>
+            <artifactId>spring-cloud-gray-plugin-gateway</artifactId>
+            <version>B.0.0.6</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
