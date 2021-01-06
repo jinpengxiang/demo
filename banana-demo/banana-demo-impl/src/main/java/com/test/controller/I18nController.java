@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "国际化;标签输出;测试")
 @RestController
+@RequestMapping("/api/test")
 @Slf4j
 public class I18nController {
     @Autowired
