@@ -42,70 +42,20 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>com.banana</groupId>
-            <artifactId>banana-log-spring-boot-starter</artifactId>
-            <version>${banana-spring-boot-starter.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.banana</groupId>
-            <artifactId>banana-common-spring-boot-starter</artifactId>
-            <version>${banana-spring-boot-starter.version}</version>
-        </dependency>
-
         <!--<dependency>-->
-            <!--<groupId>com.kitedge</groupId>-->
-            <!--<artifactId>kitedge-log-spring-boot-starter</artifactId>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.springframework.boot</groupId>-->
-                    <!--<artifactId>spring-boot-starter-web</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-actuator</artifactId>-->
+            <!--<groupId>com.banana</groupId>-->
+            <!--<artifactId>banana-common-spring-boot-starter</artifactId>-->
+            <!--<version>${banana-spring-boot-starter.version}</version>-->
         <!--</dependency>-->
 
         <dependency>
-            <groupId>cn.springcloud.gray</groupId>
-            <artifactId>spring-cloud-starter-gray-client</artifactId>
-            <version>B.0.0.6</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-cloud-gray-plugin-webmvc</artifactId>
-                    <groupId>cn.springcloud.gray</groupId>
-                </exclusion>
-                <exclusion>
-                    <groupId>cn.springcloud.gray</groupId>
-                    <artifactId>spring-cloud-gray-plugin-eureka</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>cn.springcloud.gray</groupId>
-            <artifactId>spring-cloud-gray-plugin-ribbon-nacos-discovery</artifactId>
-            <version>B.0.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.springcloud.gray</groupId>
-            <artifactId>spring-cloud-gray-plugin-gateway</artifactId>
-            <version>B.0.0.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
 
         <dependency>
@@ -120,33 +70,42 @@
             <version>${spring-cloud-starter-alibaba.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.kitedge</groupId>-->
-            <!--<artifactId>middle-end-user-api</artifactId>-->
-            <!--<version>2.1.1-RELEASE</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-gateway-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.springcloud.gray</groupId>
+            <artifactId>spring-cloud-starter-gray-client</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-cloud-gray-plugin-webmvc</artifactId>
+                    <groupId>cn.springcloud.gray</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>cn.springcloud.gray</groupId>
+                    <artifactId>spring-cloud-gray-plugin-eureka</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>B.1.0.0</version>
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>com.banana</groupId>-->
-            <!--<artifactId>banana-swagger-spring-boot-starter</artifactId>-->
-            <!--<version>${banana-spring-boot-starter.version}</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.springframework.boot</groupId>-->
-                    <!--<artifactId>spring-boot-starter-web</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
+            <!--<groupId>cn.springcloud.gray</groupId>-->
+            <!--<artifactId>spring-cloud-gray-plugin-ribbon-nacos-discovery</artifactId>-->
+            <!--<version>B.1.0.0</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>cn.springcloud.gray</groupId>-->
+            <!--<artifactId>spring-cloud-gray-plugin-gateway</artifactId>-->
+            <!--<version>B.1.0.0</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -158,11 +117,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.projectlombok</groupId>-->
-            <!--<artifactId>lombok</artifactId>-->
-        <!--</dependency>-->
     </dependencies>
 
     <build>
