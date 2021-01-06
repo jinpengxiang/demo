@@ -1,16 +1,16 @@
-//package com.banana.gateway;
-//
-//import lombok.Getter;
-//import lombok.Setter;
-//import org.springframework.boot.context.properties.ConfigurationProperties;
-//import org.springframework.stereotype.Component;
-//
-//import java.util.List;
-//
-//@Getter
-//@Setter
-//@Component
-//@ConfigurationProperties(prefix = "banana.gateway")
-//public class Properties {
-//    private List<String> authUrls;
-//}
+package com.banana.gateway;
+
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Getter
+@Setter
+@Component
+@ConfigurationProperties(prefix = "banana.gateway")
+public class Properties {
+    private List<String> authUrls;
+}
