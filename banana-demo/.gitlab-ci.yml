@@ -1,0 +1,103 @@
+image: docker:latest
+
+variables:
+#  MAVEM_IMAGE: registry.cn-hangzhou.aliyuncs.com/sanchar/maven:1.0  # maven 打包使用的镜像
+#  K8S_IMAGE: registry.cn-hangzhou.aliyuncs.com/sanchar/kubectl:v1.20.1  # k8s 部署使用的镜像
+#  PROJECT_IMAGE_SERVER: registry.cn-hangzhou.aliyuncs.com  # 阿里云镜像地址
+#  PROJECT_IMAGE: registry.cn-hangzhou.aliyuncs.com/sanchar/springboot-ci-cd-demo:1.0  # 项目镜像链接
+
+  PROJECT_IMAGE_SERVER: 192.168.0.8
+  PROJECT_IMAGE: 192.168.0.8/hy/svc/banana-demo:latest  # 项目镜像链接
+  MAVEN_CLI_OPTS: "-s /usr/share/maven/configmap/settings.xml --batch-mode"
+  MAVEN_OPTS: -Dmaven.repo.local=/home/cache/maven/repository  # 指定 maven 本地仓库路径，以便做缓存
+  PACKAGE_CACHE_REF_NAME: banana-demo
+  DEPLOYMENT_NAME: svc-banana-demo  # 项目在 k8s 中部署的名称
+  K8S_NS: git  # k8s 命名空间
+
+stages:
+- package
+- build
+- deploy
+
+# 打包
+package:
+  stage: package
+  # 打包用到了maven, 所有需要拉取maven镜像, 这是我自己构建的阿里云maven私服的maven镜像
+  image: maven:3.5-jdk-8-alpine
+  script:
+  - echo "=============== mvn package  ==============="
+  - mvn $MAVEN_OPTS $MAVEN_CLI_OPTS clean package -Dmaven.test.skip=true
+#  - mvn clean package -Dmaven.test.skip=true
+  tags:
+  - test
+  # 只作用在master分支
+  only:
+  - master
+  # 使用缓存速度更快，如果希望在gitlab-ci页面上可以下载jar包，可以使用下边的 artifacts 方式
+#  cache:
+#    key: $PACKAGE_CACHE_REF_NAME
+#    paths:
+#    - ./banana-demo-impl/target/*.jar
+  # 这里可以将maven 打包好的文件传递给下一个 stage ，然后下一步的docker 就可以根据 这个 jar 包 和Dockerfile 构建镜像
+  artifacts:
+    paths:
+    - ./banana-demo-impl/target/*.jar
+    expire_in: 2 h
+
+# 构建docker镜像并推送到镜像仓库
+build:
+  stage: build
+  cache:
+    key: $PACKAGE_CACHE_REF_NAME
+    policy: pull
+    paths:
+    - ./banana-demo-impl/target/*.jar
+  tags:
+  - test
+  script:
+  - echo "=============== docker build image  ==============="
+  - ls
+  - cd ./banana-demo-impl
+  - ls
+  - docker login $PROJECT_IMAGE_SERVER --username $USERNAME --password $PASSWORD
+  - docker build -t $PROJECT_IMAGE .
+#  - docker login --username $USERNAME --password $PASSWORD $PROJECT_IMAGE_SERVER
+#  - docker tag hy/svc/banana-demo:latest 192.168.0.8/hy/svc/banana-demo:latest
+  - docker push $PROJECT_IMAGE
+  only:
+  - master
+
+# 使用 k8s 部署
+deploy:
+  stage: deploy
+#  image: $K8S_IMAGE
+  image: registry.cn-beijing.aliyuncs.com/abcdocker/k8s:kubectl
+  tags:
+  - test
+  # 构建 k8s 可执行环境
+  before_script:
+  - kubectl version
+#  - mkdir -p /etc/kubernetes
+##  - cd /etc/kubernetes
+##  - touch admin.conf
+##  - mv $K8S_ADMIN_CONF /etc/kubernetes/admin.conf
+#  - echo $K8S_ADMIN_CONF  >> /etc/kubernetes/admin.conf
+#  - cat /etc/kubernetes/admin.conf
+#  - chmod 666 /etc/kubernetes/admin.conf
+#  - echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
+#  - source ~/.bash_profile
+  script:
+  - echo "=============== deploy  ==============="
+  - kubectl get statefulsets -n git
+  - if [ "$(kubectl get statefulsets -n $K8S_NS | grep $DEPLOYMENT_NAME | awk '{print $1}')" ]; then
+  - echo "=============== restart ==============="
+#  - kubectl set image deploy $DEPLOYMENT_NAME $DEPLOYMENT_NAME=$PROJECT_IMAGE -n $K8S_NS
+  - kubectl scale statefulsets $DEPLOYMENT_NAME --replicas=0 -n $K8S_NS
+  - kubectl scale statefulsets $DEPLOYMENT_NAME --replicas=1 -n $K8S_NS
+  - else
+  - echo "=============== init ==============="
+  - mv $K8S_DEMO_YAML $DEPLOYMENT_NAME.yaml
+  - kubectl apply -f $DEPLOYMENT_NAME.yaml -n $K8S_NS
+  - fi
+  only:
+  - master
